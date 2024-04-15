@@ -39,6 +39,8 @@ var handicap: int = 0
 
 var inf_mode: bool = false
 
+var level_loading: bool = true
+
 func _ready():
 	music.play_audio(title_music)
 	pass
@@ -71,12 +73,13 @@ func on_act_intro_done():
 	transition.transition_first()
 	await get_tree().create_timer(0.4).timeout
 	start_round()
+	level_loading = false
 	
 func start_round():
 	level_num = 0
 	timer.visible = true
 	orders.show_orders()
-	time = 150
+	time = 180
 	playing = true
 	
 	start_level(cur_act.get_level(level_num))
@@ -121,6 +124,7 @@ func act_over():
 	return !inf_mode && level_num >= -1 + cur_act.levels.size() + cur_act.num_rand_levels
 
 func next_level():
+	level_loading = true
 	player.controlling = false
 	paper.do_discard()
 	for i in player.selections:
@@ -132,6 +136,7 @@ func next_level():
 	
 	cleanup_level()
 
+	level_loading = false
 	if act_over():
 		handicap = 0
 		transition.pause()
@@ -149,7 +154,7 @@ func next_level():
 func check():
 	if cur_level.check_selection(player.selections):
 		AudioMan.play_sound(next_level_audio)
-		add_time_bonus(6 + handicap)
+		add_time_bonus(10 + handicap)
 		next_level()
 	else:
 		for i in player.selections:
@@ -194,8 +199,10 @@ func check_game_over():
 	if time == 0:
 		time_over()
 
+
+
 func _unhandled_input(event):
-	if event is InputEventKey and event.pressed and event.keycode == KEY_M:
+	if !level_loading && event is InputEventKey and event.pressed and event.keycode == KEY_M:
 		AudioMan.play_sound(next_level_audio)
 		add_time_bonus(6 + handicap)
 		next_level()
