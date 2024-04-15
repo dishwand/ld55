@@ -1,0 +1,30 @@
+[gd_resource type="Shader" format=3 uid="uid://d2votkytupjar"]
+
+[resource]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.2.1.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+
+uniform vec2 mouse_pos;
+uniform float mouse_dist = 150;
+uniform float mouse_dist2 = 170;
+
+void fragment() {
+	vec2 pixel_coords = FRAGCOORD.xy;  // Pixel coordinates
+
+	float dist = distance(pixel_coords, mouse_pos);
+	
+	if (dist < mouse_dist) {
+		discard;
+	}
+	
+	float max_alpha = 0.95;
+	float frac = (dist - mouse_dist) / float(mouse_dist2 - mouse_dist);
+	frac = clamp(frac, 0.0, 1.0);
+	float alpha = mix(0.0, max_alpha, frac);
+	
+	COLOR = vec4(0.0, 0.0, 0.0, alpha);
+	//COLOR = texture(TEXTURE, uv_mod);
+}
+"

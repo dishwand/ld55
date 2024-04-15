@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf4n7auryfedh"]
+
+[ext_resource type="Texture2D" uid="uid://c3cbb3su0s0yt" path="res://textures/court_paper.png" id="1_vkwcn"]
+[ext_resource type="FontFile" uid="uid://dul5y7bf8paa0" path="res://fonts/Platypi/static/Platypi-SemiBold.ttf" id="2_3aykk"]
+[ext_resource type="Texture2D" uid="uid://0pyimx1lijdg" path="res://textures/nopicfound.png" id="2_4d0an"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rdvc7"]
+font = ExtResource("2_3aykk")
+font_size = 18
+font_color = Color(0.819608, 0.00784314, 0.388235, 1)
+
+[node name="Paper" type="TextureRect"]
+offset_right = 240.0
+offset_bottom = 480.0
+texture = ExtResource("1_vkwcn")
+
+[node name="MissingPic" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 11.0
+offset_top = 278.0
+offset_right = 88.0
+offset_bottom = 355.0
+texture = ExtResource("2_4d0an")
+expand_mode = 1
+
+[node name="Reason" type="Label" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 143.0
+offset_right = 141.0
+offset_bottom = 169.0
+text = "TAX ILLUSION"
+label_settings = SubResource("LabelSettings_rdvc7")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 217.0
+offset_right = 142.0
+offset_bottom = 243.0
+text = "DEE MAWNIC"
+label_settings = SubResource("LabelSettings_rdvc7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 268.0
+offset_right = 232.0
+offset_bottom = 447.0
+theme_override_colors/default_color = Color(0.819608, 0.00784314, 0.388235, 1)
+theme_override_constants/line_separation = -3
+theme_override_fonts/normal_font = ExtResource("2_3aykk")
+text = "Known to be a fast walker. Smells bad. Doesn't like the sound of crickets?"
+scroll_active = false

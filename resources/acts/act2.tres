@@ -1,0 +1,282 @@
+[gd_resource type="Resource" script_class="Act" load_steps=45 format=3 uid="uid://b8rsn2apcybdx"]
+
+[ext_resource type="Script" path="res://scripts/Act.gd" id="1_im2jp"]
+[ext_resource type="Script" path="res://scripts/ImpSchemaRandom.gd" id="1_oqlxs"]
+[ext_resource type="Script" path="res://scripts/InputProvider.gd" id="2_g0ptg"]
+[ext_resource type="Resource" uid="uid://cckrrqyfgpuku" path="res://resources/levels/layouts/river_30.tres" id="2_wae3d"]
+[ext_resource type="Script" path="res://scripts/LevelLayout.gd" id="3_tyiyp"]
+[ext_resource type="Script" path="res://scripts/SpawnShapeRect.gd" id="4_0ye5j"]
+[ext_resource type="Resource" uid="uid://bpgtox5dmtvw0" path="res://resources/levels/layouts/tunnel1_25_layout.tres" id="5_fc185"]
+[ext_resource type="Script" path="res://scripts/Level.gd" id="5_ga2oj"]
+[ext_resource type="Resource" uid="uid://ckcwxmdxvgv2g" path="res://resources/levels/layouts/shapes/tunnel1_25_shape.tres" id="8_ca23e"]
+[ext_resource type="Resource" uid="uid://6mix3u6tlhmf" path="res://resources/levels/layouts/inputs/wander.tres" id="8_j4k5w"]
+[ext_resource type="Script" path="res://scripts/TwinLevel.gd" id="10_k2xyv"]
+[ext_resource type="Script" path="res://scripts/RandomLevel.gd" id="10_kovp2"]
+[ext_resource type="Script" path="res://scripts/ImpSchemaRandomFast.gd" id="10_ovwfx"]
+[ext_resource type="AudioStream" uid="uid://c6cf88ww0j7sw" path="res://audio/music/underground.wav" id="12_b2elk"]
+
+[sub_resource type="Resource" id="Resource_iw2nq"]
+script = ExtResource("1_oqlxs")
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_dr54s"]
+script = ExtResource("5_ga2oj")
+goal_count = 1
+goal_schema = SubResource("Resource_iw2nq")
+show_profile = true
+reason = "POOL PEEING"
+imp_name = "Todd"
+imp_description = "Ew, Todd! "
+layout = ExtResource("2_wae3d")
+env = 2
+dark = false
+override_move_speed = 0.0
+
+[sub_resource type="Resource" id="Resource_qvh2h"]
+script = ExtResource("1_oqlxs")
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_26l7o"]
+script = ExtResource("2_g0ptg")
+
+[sub_resource type="Resource" id="Resource_8mk41"]
+script = ExtResource("4_0ye5j")
+rows = 5
+cols = 5
+width = 15.0
+height = 15.0
+
+[sub_resource type="Resource" id="Resource_3h5vm"]
+script = ExtResource("3_tyiyp")
+num_imps = 25
+imp_input = SubResource("Resource_26l7o")
+spawn_shape = SubResource("Resource_8mk41")
+
+[sub_resource type="Resource" id="Resource_lde1p"]
+script = ExtResource("5_ga2oj")
+goal_count = 1
+goal_schema = SubResource("Resource_qvh2h")
+show_profile = true
+reason = "ILLICIT MATERIALS"
+imp_name = "King Pink"
+imp_description = "The imps down here can see well in the dark. Us, not so much."
+layout = SubResource("Resource_3h5vm")
+env = 1
+dark = true
+override_move_speed = -1.0
+
+[sub_resource type="Resource" id="Resource_kcf2e"]
+script = ExtResource("10_ovwfx")
+set_move_speed = 15.0
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_c1wcv"]
+script = ExtResource("5_ga2oj")
+goal_count = 1
+goal_schema = SubResource("Resource_kcf2e")
+show_profile = false
+reason = "SPEEDING"
+imp_name = "Jimmy Swift"
+imp_description = "We couldn't grab a pic of him, but he's gonna be the really fast one!"
+layout = ExtResource("5_fc185")
+env = 1
+dark = false
+override_move_speed = -1.0
+
+[sub_resource type="Resource" id="Resource_7h13y"]
+script = ExtResource("1_oqlxs")
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_rcx7n"]
+script = ExtResource("3_tyiyp")
+num_imps = 12
+imp_input = ExtResource("8_j4k5w")
+spawn_shape = ExtResource("8_ca23e")
+
+[sub_resource type="Resource" id="Resource_hy1lf"]
+script = ExtResource("10_k2xyv")
+num_copies_of_goal = 1
+goal_count = 2
+goal_schema = SubResource("Resource_7h13y")
+show_profile = false
+reason = "impersonation"
+imp_name = "Whimmy Bizzle"
+imp_description = "We've got an impersonation report, but no picture. Just find the two lookalike imps!"
+layout = SubResource("Resource_rcx7n")
+env = 1
+dark = false
+override_move_speed = -1.0
+
+[sub_resource type="Resource" id="Resource_n1hdn"]
+script = ExtResource("1_oqlxs")
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_wsx8u"]
+script = ExtResource("5_ga2oj")
+goal_count = 1
+goal_schema = SubResource("Resource_n1hdn")
+show_profile = true
+reason = ""
+imp_name = ""
+imp_description = ""
+layout = ExtResource("5_fc185")
+env = 1
+dark = true
+override_move_speed = -1.0
+
+[sub_resource type="Resource" id="Resource_0so3f"]
+script = ExtResource("10_kovp2")
+level = SubResource("Resource_wsx8u")
+reasons = Array[String](["Robbery", "Public Indecency"])
+names = Array[String](["Kim Prudent", "Sal Sneezer"])
+descriptions = Array[String](["Though she did steal our hearts with her plans to donate the money.", "Get a handkerchief, Sal, and don't use these papers."])
+
+[sub_resource type="Resource" id="Resource_3ka23"]
+script = ExtResource("1_oqlxs")
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_jk2mw"]
+script = ExtResource("2_g0ptg")
+
+[sub_resource type="Resource" id="Resource_oy6on"]
+script = ExtResource("3_tyiyp")
+num_imps = 15
+imp_input = SubResource("Resource_jk2mw")
+spawn_shape = ExtResource("8_ca23e")
+
+[sub_resource type="Resource" id="Resource_8j5fw"]
+script = ExtResource("10_k2xyv")
+num_copies_of_goal = 1
+goal_count = 2
+goal_schema = SubResource("Resource_3ka23")
+show_profile = false
+reason = ""
+imp_name = ""
+imp_description = ""
+layout = SubResource("Resource_oy6on")
+env = 1
+dark = true
+override_move_speed = -1.0
+
+[sub_resource type="Resource" id="Resource_g33wx"]
+script = ExtResource("10_kovp2")
+level = SubResource("Resource_8j5fw")
+reasons = Array[String](["DUPLICATION MAGIC", "TWIN TRICKERY"])
+names = Array[String](["Biv Sprinkles", "L. Beauregard "])
+descriptions = Array[String](["All you needed was a duplication permit, Biv.", "L is left handed. R is not. Get them both."])
+
+[sub_resource type="Resource" id="Resource_7wji6"]
+script = ExtResource("10_ovwfx")
+set_move_speed = 15.0
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_qbcf0"]
+script = ExtResource("3_tyiyp")
+num_imps = 12
+imp_input = ExtResource("8_j4k5w")
+spawn_shape = SubResource("Resource_8mk41")
+
+[sub_resource type="Resource" id="Resource_dmti6"]
+script = ExtResource("5_ga2oj")
+goal_count = 1
+goal_schema = SubResource("Resource_7wji6")
+show_profile = false
+reason = ""
+imp_name = ""
+imp_description = ""
+layout = SubResource("Resource_qbcf0")
+env = 1
+dark = true
+override_move_speed = -1.0
+
+[sub_resource type="Resource" id="Resource_hw5np"]
+script = ExtResource("10_kovp2")
+level = SubResource("Resource_dmti6")
+reasons = Array[String](["DOUBLETIME", "SNEAKER THEFT"])
+names = Array[String](["Tremolo Jones", "Linda Arboretum"])
+descriptions = Array[String](["\"Catch me if you can\", says Tremolo Jones.", "Look for nice kicks, a good running form, steady breathing, even movements,"])
+
+[sub_resource type="Resource" id="Resource_65vb8"]
+script = ExtResource("1_oqlxs")
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_3mlse"]
+script = ExtResource("10_k2xyv")
+num_copies_of_goal = 1
+goal_count = 2
+goal_schema = SubResource("Resource_65vb8")
+show_profile = true
+reason = ""
+imp_name = ""
+imp_description = ""
+layout = ExtResource("2_wae3d")
+env = 2
+dark = false
+override_move_speed = 0.0
+
+[sub_resource type="Resource" id="Resource_ba5w4"]
+script = ExtResource("10_kovp2")
+level = SubResource("Resource_3mlse")
+reasons = Array[String](["Tax Fraud", "MOVIE CASTING"])
+names = Array[String](["Tip & Top", "Chip & Chop"])
+descriptions = Array[String](["Enjoying a leisurely swim, are we, twins?", "In search of twins for government funded movie project."])
+
+[sub_resource type="Resource" id="Resource_27m73"]
+script = ExtResource("1_oqlxs")
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_xc70k"]
+script = ExtResource("5_ga2oj")
+goal_count = 1
+goal_schema = SubResource("Resource_27m73")
+show_profile = true
+reason = ""
+imp_name = ""
+imp_description = ""
+layout = ExtResource("2_wae3d")
+env = 2
+dark = true
+override_move_speed = 0.0
+
+[sub_resource type="Resource" id="Resource_jtddm"]
+script = ExtResource("10_kovp2")
+level = SubResource("Resource_xc70k")
+reasons = Array[String](["LIFEGUARD DUTY", "IMPROPER SWIMWEAR"])
+names = Array[String](["Gnarles Ripski", "Fro Dibowitz"])
+descriptions = Array[String](["Like jury duty, but for lifeguards.", "Rather, lack of any swimwear at all."])
+
+[resource]
+script = ExtResource("1_im2jp")
+levels = Array[ExtResource("5_ga2oj")]([SubResource("Resource_dr54s"), SubResource("Resource_lde1p"), SubResource("Resource_c1wcv"), SubResource("Resource_hy1lf")])
+rand_templates = Array[ExtResource("10_kovp2")]([SubResource("Resource_0so3f"), SubResource("Resource_g33wx"), SubResource("Resource_hw5np"), SubResource("Resource_ba5w4"), SubResource("Resource_jtddm")])
+num_rand_levels = 9
+act_title = "The Underground"
+act_description = Array[String](["We've got real dirt on a criminal ring operating in the underground.", "...actually they're mostly good people. Just like you!", "But there is justice to be done. Summons to be delivered.", "Take this flashlight, you'll need it."])
+music = ExtResource("12_b2elk")

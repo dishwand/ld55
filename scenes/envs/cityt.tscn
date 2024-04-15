@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=3 uid="uid://cc7jnlyp3or68"]
+
+[ext_resource type="PackedScene" uid="uid://b646046bgl5h4" path="res://models/levels/city.glb" id="1_imd6q"]
+[ext_resource type="Texture2D" uid="uid://bp07rfujor3qm" path="res://textures/plaster.png" id="2_p47fj"]
+[ext_resource type="PackedScene" uid="uid://b28e3m0njj03l" path="res://scenes/teleport_zone.tscn" id="3_e07nu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_obtv5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pk4m4"]
+albedo_texture = ExtResource("2_p47fj")
+metallic_specular = 0.0
+
+[node name="Tunnel2" type="Node3D"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -0.409185, -1.90735e-06, -6.87385)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.224701, 33.9896, 0.701939)
+light_energy = 4.367
+omni_range = 140.069
+
+[node name="Collision" type="Node3D" parent="."]
+transform = Transform3D(0.573261, 0, 0, 0, 0.588235, 0, 0, 0, 0.615726, 0, 1.81582, -0.593294)
+visible = false
+
+[node name="Floor" type="CSGBox3D" parent="Collision"]
+transform = Transform3D(116.761, 0, 0, 0, 0.999999, 0, 0, 0, 107.838, 0, -3.23101, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision/Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/Floor/StaticBody3D"]
+shape = SubResource("BoxShape3D_obtv5")
+
+[node name="Floor2" type="CSGBox3D" parent="Collision"]
+transform = Transform3D(43.9364, 0, 0, 0, 9.44731, 0, 0, 0, 42.7712, 32.3824, 35.2369, 31.9121)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision/Floor2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/Floor2/StaticBody3D"]
+shape = SubResource("BoxShape3D_obtv5")
+
+[node name="CameraPos" type="Node3D" parent="."]
+transform = Transform3D(0.638783, -0.454519, 0.489336, 0, 0.766044, 0.580678, -0.638783, -0.454519, 0.489336, 15.7085, 12.8074, 15.4839)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.357936, 2.79219e-08, -0.178554, 0.154147, 0.201871, 0.309009, 0.0901123, -0.345323, 0.180643, -1.86282, 5.03966, 9.74518)
+light_color = Color(0.996078, 0.878431, 0.952941, 1)
+light_cull_mask = 4294967287
+shadow_enabled = true
+shadow_opacity = 0.75
+shadow_blur = 1.855
+sky_mode = 1
+
+[node name="city" parent="." instance=ExtResource("1_imd6q")]
+transform = Transform3D(0.903375, 0, 0, 0, 0.336017, 0, 0, 0, 0.903375, 0, 0, 0)
+
+[node name="Plane" parent="city" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pk4m4")
+
+[node name="TeleportZone" parent="." instance=ExtResource("3_e07nu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="TeleportZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1.62579, 0, 0, 0, 12.0073, -23.0725, 0.812932, 0.174182)
+
+[node name="Target" parent="TeleportZone" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.851, 0.745734, -1.50785)
+
+[node name="TeleportZone2" parent="." instance=ExtResource("3_e07nu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="TeleportZone2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1.62579, 0, 0, 0, 12.0073, -23.0725, 0.812932, 0.174182)
+
+[node name="Target" parent="TeleportZone2" index="1"]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 18.851, 0.745734, -1.50785)
+
+[node name="TeleportZone3" parent="." instance=ExtResource("3_e07nu")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="TeleportZone3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1.62579, 0, 0, 0, 12.0073, -23.0725, 0.812932, 0.174182)
+
+[node name="Target" parent="TeleportZone3" index="1"]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 18.851, 0.745734, -1.50785)
+
+[node name="TeleportZone4" parent="." instance=ExtResource("3_e07nu")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="TeleportZone4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1.62579, 0, 0, 0, 12.0073, -23.0725, 0.812932, 0.174182)
+
+[node name="Target" parent="TeleportZone4" index="1"]
+transform = Transform3D(1, 0, 1.42109e-14, 0, 1, 0, -1.42109e-14, 0, 1, 18.851, 0.745734, -1.50785)
+
+[editable path="city"]
+[editable path="TeleportZone"]
+[editable path="TeleportZone2"]
+[editable path="TeleportZone3"]
+[editable path="TeleportZone4"]

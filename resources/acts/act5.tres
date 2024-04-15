@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Act" load_steps=6 format=3 uid="uid://b7wqh845jx7wk"]
+
+[ext_resource type="AudioStream" uid="uid://brwof5j642wh5" path="res://audio/music/title.wav" id="1_33t15"]
+[ext_resource type="Script" path="res://scripts/Act.gd" id="1_glq1x"]
+[ext_resource type="AudioStream" uid="uid://brmkn8u0srytc" path="res://audio/music/airport.wav" id="2_abefs"]
+[ext_resource type="AudioStream" uid="uid://c6cf88ww0j7sw" path="res://audio/music/underground.wav" id="3_8cjox"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8w2ir"]
+streams_count = 3
+stream_0/stream = ExtResource("1_33t15")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_abefs")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_8cjox")
+stream_2/weight = 1.0
+
+[resource]
+script = ExtResource("1_glq1x")
+levels = Array[Resource("res://scripts/Level.gd")]([])
+rand_templates = Array[Resource("res://scripts/RandomLevel.gd")]([])
+num_rand_levels = -1
+act_title = "The End!"
+act_description = Array[String](["Thank you for playing!", "You may now enjoy endless mode."])
+music = SubResource("AudioStreamRandomizer_8w2ir")

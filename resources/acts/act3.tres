@@ -1,0 +1,283 @@
+[gd_resource type="Resource" script_class="Act" load_steps=41 format=3 uid="uid://dw2i5rfpcn0sw"]
+
+[ext_resource type="Script" path="res://scripts/ImpSchemaRandom.gd" id="1_tusy3"]
+[ext_resource type="Script" path="res://scripts/Act.gd" id="1_yyfmq"]
+[ext_resource type="Resource" uid="uid://bty6lypkmtsbj" path="res://resources/levels/layouts/city_28_layout.tres" id="2_1460l"]
+[ext_resource type="Script" path="res://scripts/InputProviderDir.gd" id="2_g5pmv"]
+[ext_resource type="Script" path="res://scripts/LevelLayout.gd" id="3_v22f5"]
+[ext_resource type="Script" path="res://scripts/Level.gd" id="4_385od"]
+[ext_resource type="Script" path="res://scripts/SpawnShapeRect.gd" id="4_6644t"]
+[ext_resource type="AudioStream" uid="uid://cqkh1w1hst3qt" path="res://audio/music/city.wav" id="4_j0x5s"]
+[ext_resource type="Script" path="res://scripts/ImpSchemaRandomFast.gd" id="5_1q5s0"]
+[ext_resource type="Script" path="res://scripts/RandomLevel.gd" id="6_6ps3u"]
+[ext_resource type="Script" path="res://scripts/TwinLevel.gd" id="10_ob08m"]
+
+[sub_resource type="Resource" id="Resource_t1p5w"]
+script = ExtResource("1_tusy3")
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_huhfa"]
+script = ExtResource("4_385od")
+goal_count = 1
+goal_schema = SubResource("Resource_t1p5w")
+show_profile = true
+reason = "Jaywalking"
+imp_name = "Bell Hobbes"
+imp_description = "Reading her traffic report made me sick to my stomach."
+layout = ExtResource("2_1460l")
+env = 3
+dark = false
+override_move_speed = 8.0
+
+[sub_resource type="Resource" id="Resource_fyimx"]
+script = ExtResource("5_1q5s0")
+set_move_speed = 14.0
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_14l8h"]
+script = ExtResource("4_385od")
+goal_count = 1
+goal_schema = SubResource("Resource_fyimx")
+show_profile = false
+reason = ""
+imp_name = ""
+imp_description = ""
+layout = ExtResource("2_1460l")
+env = 3
+dark = false
+override_move_speed = 8.0
+
+[sub_resource type="Resource" id="Resource_afco4"]
+script = ExtResource("6_6ps3u")
+level = SubResource("Resource_14l8h")
+reasons = Array[String](["Excessive Powerwalking", "Running from the law"])
+names = Array[String](["Micah Hunk", "Faffle Quimpus"])
+descriptions = Array[String](["Get him!!! Before he powerwalks away!!!", "Cops can run from the law, too!"])
+
+[sub_resource type="Resource" id="Resource_3ifbm"]
+script = ExtResource("5_1q5s0")
+set_move_speed = 18.0
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_0ehwk"]
+script = ExtResource("4_385od")
+goal_count = 1
+goal_schema = SubResource("Resource_3ifbm")
+show_profile = true
+reason = ""
+imp_name = ""
+imp_description = ""
+layout = ExtResource("2_1460l")
+env = 3
+dark = true
+override_move_speed = 8.0
+
+[sub_resource type="Resource" id="Resource_db02t"]
+script = ExtResource("6_6ps3u")
+level = SubResource("Resource_0ehwk")
+reasons = Array[String](["Petty Theft", "Controlled Substances"])
+names = Array[String](["Glimbus the Third", "Swimly Biscuits"])
+descriptions = Array[String](["I guess the escape vehicle didn't show up?", "Suspect was last seen drinking the world's largest cuppa joe."])
+
+[sub_resource type="Resource" id="Resource_bvoug"]
+script = ExtResource("1_tusy3")
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_2nh0e"]
+script = ExtResource("2_g5pmv")
+redirect_time = 2.0
+redirect_range = 0.6
+
+[sub_resource type="Resource" id="Resource_w3n1f"]
+script = ExtResource("4_6644t")
+rows = 7
+cols = 7
+width = 18.0
+height = 18.0
+
+[sub_resource type="Resource" id="Resource_a26dj"]
+script = ExtResource("3_v22f5")
+num_imps = 35
+imp_input = SubResource("Resource_2nh0e")
+spawn_shape = SubResource("Resource_w3n1f")
+
+[sub_resource type="Resource" id="Resource_84ljw"]
+script = ExtResource("4_385od")
+goal_count = 1
+goal_schema = SubResource("Resource_bvoug")
+show_profile = true
+reason = ""
+imp_name = ""
+imp_description = ""
+layout = SubResource("Resource_a26dj")
+env = 3
+dark = false
+override_move_speed = 8.0
+
+[sub_resource type="Resource" id="Resource_flt2o"]
+script = ExtResource("6_6ps3u")
+level = SubResource("Resource_84ljw")
+reasons = Array[String](["Document Forgery", "Pyramid Schemes"])
+names = Array[String](["Bic Pilot", "Mr. Joffery"])
+descriptions = Array[String](["Oh Bic, if only your handwriting were a little better.", "Reports say he succesfully made 3 levels before getting caught."])
+
+[sub_resource type="Resource" id="Resource_elqc2"]
+script = ExtResource("1_tusy3")
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_na4qi"]
+script = ExtResource("4_385od")
+goal_count = 1
+goal_schema = SubResource("Resource_elqc2")
+show_profile = true
+reason = ""
+imp_name = ""
+imp_description = ""
+layout = ExtResource("2_1460l")
+env = 3
+dark = true
+override_move_speed = 8.0
+
+[sub_resource type="Resource" id="Resource_kb8mr"]
+script = ExtResource("6_6ps3u")
+level = SubResource("Resource_na4qi")
+reasons = Array[String](["Past Curfew", "Playing Hooky"])
+names = Array[String](["Tyler Marble", "Little Jammy"])
+descriptions = Array[String](["Curfew is really only between 3:59 and 4:00 AM. That's the Precious Minute.", "Uh, I'm pretty sure that's not actually a kid. Bring him in anyways."])
+
+[sub_resource type="Resource" id="Resource_qkpxb"]
+script = ExtResource("1_tusy3")
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_ll4af"]
+script = ExtResource("10_ob08m")
+num_copies_of_goal = 2
+goal_count = 3
+goal_schema = SubResource("Resource_qkpxb")
+show_profile = true
+reason = ""
+imp_name = ""
+imp_description = ""
+layout = ExtResource("2_1460l")
+env = 3
+dark = false
+override_move_speed = 8.0
+
+[sub_resource type="Resource" id="Resource_nqekh"]
+script = ExtResource("6_6ps3u")
+level = SubResource("Resource_ll4af")
+reasons = Array[String](["Three of Them", "Quadruplet Fraud"])
+names = Array[String](["Wun, Too, & Thry", "Ay, Bee, & Cee"])
+descriptions = Array[String](["There can't be three of them! You can't do that!", "There was never a Dee, despite their convincing attemps."])
+
+[sub_resource type="Resource" id="Resource_girrf"]
+script = ExtResource("5_1q5s0")
+set_move_speed = 15.0
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_ji131"]
+script = ExtResource("10_ob08m")
+num_copies_of_goal = 1
+goal_count = 2
+goal_schema = SubResource("Resource_girrf")
+show_profile = false
+reason = ""
+imp_name = ""
+imp_description = ""
+layout = ExtResource("2_1460l")
+env = 3
+dark = false
+override_move_speed = 8.0
+
+[sub_resource type="Resource" id="Resource_libwj"]
+script = ExtResource("6_6ps3u")
+level = SubResource("Resource_ji131")
+reasons = Array[String](["Street Racing"])
+names = Array[String](["Dribble & Spitz"])
+descriptions = Array[String](["God only knows what direction they're headed."])
+
+[sub_resource type="Resource" id="Resource_yklcv"]
+script = ExtResource("1_tusy3")
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_2ktus"]
+script = ExtResource("10_ob08m")
+num_copies_of_goal = 1
+goal_count = 2
+goal_schema = SubResource("Resource_yklcv")
+show_profile = true
+reason = ""
+imp_name = ""
+imp_description = ""
+layout = ExtResource("2_1460l")
+env = 3
+dark = true
+override_move_speed = 8.0
+
+[sub_resource type="Resource" id="Resource_a4m6a"]
+script = ExtResource("6_6ps3u")
+level = SubResource("Resource_2ktus")
+reasons = Array[String](["Shadow Magic"])
+names = Array[String](["Darkness M'Legion"])
+descriptions = Array[String](["You know. It's like cloning magic. But when it's dark out."])
+
+[sub_resource type="Resource" id="Resource_ioana"]
+script = ExtResource("5_1q5s0")
+set_move_speed = 22.0
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_nv7fg"]
+script = ExtResource("4_385od")
+goal_count = 1
+goal_schema = SubResource("Resource_ioana")
+show_profile = true
+reason = ""
+imp_name = ""
+imp_description = ""
+layout = ExtResource("2_1460l")
+env = 3
+dark = false
+override_move_speed = 8.0
+
+[sub_resource type="Resource" id="Resource_rc0ut"]
+script = ExtResource("6_6ps3u")
+level = SubResource("Resource_nv7fg")
+reasons = Array[String](["Jury Evasion"])
+names = Array[String](["Hum Deedum"])
+descriptions = Array[String](["You've gotta admire his commitment against democratized justice."])
+
+[resource]
+script = ExtResource("1_yyfmq")
+levels = Array[ExtResource("4_385od")]([SubResource("Resource_huhfa")])
+rand_templates = Array[ExtResource("6_6ps3u")]([SubResource("Resource_afco4"), SubResource("Resource_db02t"), SubResource("Resource_flt2o"), SubResource("Resource_kb8mr"), SubResource("Resource_nqekh"), SubResource("Resource_libwj"), SubResource("Resource_a4m6a"), SubResource("Resource_rc0ut")])
+num_rand_levels = 12
+act_title = "City Slicks"
+act_description = Array[String](["I think you're ready for the big gig now: eyeing the streets of New Tartarus.", "Rule #1: Move fast, or get run over.", "Not by cars though. Mayor King Demon is very transit-oriented.", "You're wasting time reading this. Go on. Do some summons."])
+music = ExtResource("4_j0x5s")

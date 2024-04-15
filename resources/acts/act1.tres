@@ -1,0 +1,178 @@
+[gd_resource type="Resource" script_class="Act" load_steps=31 format=3 uid="uid://crquauoiemqpo"]
+
+[ext_resource type="Script" path="res://scripts/ImpSchemaRandom.gd" id="1_4fflc"]
+[ext_resource type="Script" path="res://scripts/InputProvider.gd" id="2_hj5le"]
+[ext_resource type="Script" path="res://scripts/TwinLevel.gd" id="2_lag2o"]
+[ext_resource type="Script" path="res://scripts/LevelLayout.gd" id="3_mglch"]
+[ext_resource type="Script" path="res://scripts/SpawnShapeRect.gd" id="4_drbf2"]
+[ext_resource type="Script" path="res://scripts/Level.gd" id="5_q7i2f"]
+[ext_resource type="Resource" uid="uid://6mix3u6tlhmf" path="res://resources/levels/layouts/inputs/wander.tres" id="6_ctwiq"]
+[ext_resource type="Script" path="res://scripts/ImpSchema.gd" id="6_vdgnb"]
+[ext_resource type="Script" path="res://scripts/Act.gd" id="7_yv5y4"]
+[ext_resource type="Script" path="res://scripts/RandomLevel.gd" id="9_cljeu"]
+[ext_resource type="AudioStream" uid="uid://brmkn8u0srytc" path="res://audio/music/airport.wav" id="9_u61q0"]
+
+[sub_resource type="Resource" id="Resource_ggboc"]
+script = ExtResource("1_4fflc")
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_a0i42"]
+script = ExtResource("2_hj5le")
+
+[sub_resource type="Resource" id="Resource_peb5l"]
+script = ExtResource("4_drbf2")
+rows = 2
+cols = 3
+width = 12.0
+height = 12.0
+
+[sub_resource type="Resource" id="Resource_64nax"]
+script = ExtResource("3_mglch")
+num_imps = 6
+imp_input = SubResource("Resource_a0i42")
+spawn_shape = SubResource("Resource_peb5l")
+
+[sub_resource type="Resource" id="Resource_vbur2"]
+script = ExtResource("5_q7i2f")
+goal_count = 1
+goal_schema = SubResource("Resource_ggboc")
+show_profile = true
+reason = "JURY DUTY"
+imp_name = "DILLY DALLY"
+imp_description = "We've got a picture of Dilly, so you should be able to find him."
+layout = SubResource("Resource_64nax")
+env = 0
+dark = false
+override_move_speed = -1.0
+
+[sub_resource type="Resource" id="Resource_km8rw"]
+script = ExtResource("1_4fflc")
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_dlgm5"]
+script = ExtResource("4_drbf2")
+rows = 4
+cols = 4
+width = 12.0
+height = 12.0
+
+[sub_resource type="Resource" id="Resource_tr8kt"]
+script = ExtResource("3_mglch")
+num_imps = 16
+imp_input = SubResource("Resource_a0i42")
+spawn_shape = SubResource("Resource_dlgm5")
+
+[sub_resource type="Resource" id="Resource_wg2qv"]
+script = ExtResource("5_q7i2f")
+goal_count = 1
+goal_schema = SubResource("Resource_km8rw")
+show_profile = true
+reason = "JURY EVASION"
+imp_name = "EM PASHIENT"
+imp_description = "Make sure that all facial features match before you deliver a summons."
+layout = SubResource("Resource_tr8kt")
+env = 0
+dark = false
+override_move_speed = -1.0
+
+[sub_resource type="Resource" id="Resource_b4xdc"]
+script = ExtResource("6_vdgnb")
+color = 4
+eye = 15
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_anj2l"]
+script = ExtResource("4_drbf2")
+rows = 4
+cols = 4
+width = 12.0
+height = 12.0
+
+[sub_resource type="Resource" id="Resource_r2tcx"]
+script = ExtResource("3_mglch")
+num_imps = 16
+imp_input = ExtResource("6_ctwiq")
+spawn_shape = SubResource("Resource_anj2l")
+
+[sub_resource type="Resource" id="Resource_23xp7"]
+script = ExtResource("5_q7i2f")
+goal_count = 1
+goal_schema = SubResource("Resource_b4xdc")
+show_profile = false
+reason = "KILLING THE JURY"
+imp_name = "KILLIAN THOUSAND"
+imp_description = "Suspect fled the scene. Eyewitness report states that his eyes were red with rage."
+layout = SubResource("Resource_r2tcx")
+env = 0
+dark = false
+override_move_speed = -1.0
+
+[sub_resource type="Resource" id="Resource_v8jmt"]
+script = ExtResource("1_4fflc")
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_k28xd"]
+script = ExtResource("3_mglch")
+num_imps = 16
+imp_input = SubResource("Resource_a0i42")
+spawn_shape = SubResource("Resource_dlgm5")
+
+[sub_resource type="Resource" id="Resource_04p3d"]
+script = ExtResource("2_lag2o")
+num_copies_of_goal = 1
+goal_count = 2
+goal_schema = SubResource("Resource_v8jmt")
+show_profile = true
+reason = "Duplication Magic"
+imp_name = "Mira Mira"
+imp_description = "You should see two Mira's, make sure to deliver them both the summons!"
+layout = SubResource("Resource_k28xd")
+env = 0
+dark = false
+override_move_speed = -1.0
+
+[sub_resource type="Resource" id="Resource_lvtvd"]
+script = ExtResource("1_4fflc")
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_tf5he"]
+script = ExtResource("5_q7i2f")
+goal_count = 1
+goal_schema = SubResource("Resource_lvtvd")
+show_profile = true
+reason = ""
+imp_name = ""
+imp_description = ""
+layout = SubResource("Resource_r2tcx")
+env = 0
+dark = false
+override_move_speed = -1.0
+
+[sub_resource type="Resource" id="Resource_qkrbw"]
+script = ExtResource("9_cljeu")
+level = SubResource("Resource_tf5he")
+reasons = Array[String](["CAR REPO", "TAX EVASION", "SMUGGLING", "JUGGLING?", "autodefenestration"])
+names = Array[String](["Tug Terrible", "Yo Shee", "Lemmy Squeeze", "mc barnacles", "evil carnevil"])
+descriptions = Array[String](["Legally speaking, \"car\" is a very broad category.", "He might just try and swallow the court order papers, too.", "Quantity of snacks snuck into movie theater exceeds $1,000. Felony charge.", "Wait, is that THE MC Barnacles?", "If you can't spot him out of the crowd, try using your nose."])
+
+[resource]
+script = ExtResource("7_yv5y4")
+levels = Array[ExtResource("5_q7i2f")]([SubResource("Resource_vbur2"), SubResource("Resource_wg2qv"), SubResource("Resource_23xp7"), SubResource("Resource_04p3d")])
+rand_templates = Array[ExtResource("9_cljeu")]([SubResource("Resource_qkrbw")])
+num_rand_levels = 6
+act_title = "Earthport TSA"
+act_description = Array[String](["So it's your first day as a [color=d91b5b]Summoner[/color]?", "We'll start you off easy on surveillance at Earthport TSA.", "Lots of imps waiting. Also lots of court summons waiting to be served.", "Get to work."])
+music = ExtResource("9_u61q0")

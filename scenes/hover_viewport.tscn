@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2ivtsv5qm4qd"]
+
+[ext_resource type="Environment" uid="uid://1v315qw3qy6m" path="res://scenes/env.tres" id="1_w4kkq"]
+[ext_resource type="Script" path="res://scripts/HoveredCam.gd" id="2_5eop2"]
+
+[node name="HoverViewport" type="SubViewportContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+gui_disable_input = true
+render_target_update_mode = 4
+
+[node name="HoveredCam" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 26.995, 36.668)
+cull_mask = 7
+environment = ExtResource("1_w4kkq")
+fov = 45.0
+script = ExtResource("2_5eop2")

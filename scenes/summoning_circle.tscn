@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://l25loq0i8h8"]
+
+[ext_resource type="Texture2D" uid="uid://dyqnf7hy3w74q" path="res://textures/summoning_final.png" id="1_42dcd"]
+[ext_resource type="Script" path="res://scripts/SummoningCircle.gd" id="2_q2oal"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mt0q2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vi2kr"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(2, 2, 2, 1)
+albedo_texture = ExtResource("1_42dcd")
+texture_filter = 0
+
+[sub_resource type="Animation" id="Animation_q0d1g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ao6v1"]
+resource_name = "appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 0.366022, 0.435275),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(5, 5, 5), Vector3(4, 4, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m02h3"]
+_data = {
+"RESET": SubResource("Animation_q0d1g"),
+"appear": SubResource("Animation_ao6v1")
+}
+
+[node name="SummoningCircle" type="CSGMesh3D"]
+mesh = SubResource("PlaneMesh_mt0q2")
+material = SubResource("StandardMaterial3D_vi2kr")
+script = ExtResource("2_q2oal")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m02h3")
+}

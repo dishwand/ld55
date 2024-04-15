@@ -1,0 +1,189 @@
+[gd_scene load_steps=7 format=3 uid="uid://cyah4er8pmhhy"]
+
+[ext_resource type="ArrayMesh" uid="uid://cfll6r4qnbw54" path="res://models/levels/tunnel2.res" id="1_cur76"]
+[ext_resource type="PackedScene" uid="uid://bnex2m1yhv1lv" path="res://scenes/water.tscn" id="2_trk7y"]
+[ext_resource type="PackedScene" uid="uid://b28e3m0njj03l" path="res://scenes/teleport_zone.tscn" id="3_262si"]
+[ext_resource type="PackedScene" uid="uid://qeebl3wehxjq" path="res://models/levels/rock1.glb" id="4_e1pv4"]
+[ext_resource type="PackedScene" uid="uid://3mk6y1fu7r33" path="res://models/levels/rock2.glb" id="5_kiil1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_obtv5"]
+
+[node name="Tunnel2" type="Node3D"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -0.409185, -1.90735e-06, -6.87385)
+
+[node name="Plane" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 1.81582, 0)
+cast_shadow = 0
+mesh = ExtResource("1_cur76")
+skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -8.98615, 11.4272, -4.00107)
+light_energy = 0.8
+omni_range = 38.5607
+
+[node name="Collision" type="Node3D" parent="."]
+transform = Transform3D(0.588235, 0, 0, 0, 0.588235, 0, 0, 0, 0.588235, 0, 1.81582, -0.593294)
+visible = false
+
+[node name="Floor" type="CSGBox3D" parent="Collision"]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 60, 0, -3.53286, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision/Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/Floor/StaticBody3D"]
+shape = SubResource("BoxShape3D_obtv5")
+
+[node name="BackWall" type="CSGBox3D" parent="Collision"]
+transform = Transform3D(41, 0, 0, 0, 11, 0, 0, 0, 1, -0.0392456, 4.74829, -15.8491)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision/BackWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/BackWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_obtv5")
+
+[node name="FrontWall" type="CSGBox3D" parent="Collision"]
+transform = Transform3D(41, 0, 0, 0, 11, 0, 0, 0, 1, -0.0392456, 4.74829, 18.2981)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision/FrontWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/FrontWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_obtv5")
+
+[node name="RightWall" type="CSGBox3D" parent="Collision"]
+transform = Transform3D(-1.79217e-06, 0, 1, 0, 11, 0, -41, 0, -4.37114e-08, 29.7173, 4.74829, 0.611367)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision/RightWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/RightWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_obtv5")
+
+[node name="RightCameraWall" type="CSGBox3D" parent="Collision"]
+transform = Transform3D(19.2635, 0, 0.882751, 0, 11, 0, -36.1928, 0, 0.469841, 26.653, 4.748, 11.04)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision/RightCameraWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/RightCameraWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_obtv5")
+
+[node name="LeftCameraWall" type="CSGBox3D" parent="Collision"]
+transform = Transform3D(19.2483, 0, -0.882948, 0, 11, 0, 36.2008, 0, 0.469472, -27.0371, 4.748, 11.04)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision/LeftCameraWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/LeftCameraWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_obtv5")
+
+[node name="LeftWall" type="CSGBox3D" parent="Collision"]
+transform = Transform3D(-1.79217e-06, 0, 1, 0, 11, 0, -41, 0, -4.37114e-08, -30.1674, 4.74829, 0.611367)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision/LeftWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/LeftWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_obtv5")
+
+[node name="CameraPos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 13.4931, 20.142)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.357936, 1.17339e-08, -0.178554, 0.154147, 0.201871, 0.309009, 0.0901122, -0.345323, 0.180642, -1.86282, 5.03966, 9.74518)
+light_energy = 0.15
+light_cull_mask = 4294967287
+shadow_enabled = true
+shadow_opacity = 0.75
+shadow_blur = 1.855
+sky_mode = 1
+
+[node name="water" parent="." instance=ExtResource("2_trk7y")]
+
+[node name="TeleportZone" parent="water" node_paths=PackedStringArray("target") instance=ExtResource("3_262si")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8184, 3.4591, -0.112095)
+target = NodePath("Target")
+
+[node name="CollisionShape3D" parent="water/TeleportZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.824, -1.48547, 0.174182)
+
+[node name="Target" parent="water/TeleportZone" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1155, -3.01564, -6.39442)
+
+[node name="water3" parent="." instance=ExtResource("2_trk7y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.562656, -5.83805)
+
+[node name="TeleportZone" parent="water3" node_paths=PackedStringArray("target") instance=ExtResource("3_262si")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8184, 3.4591, -0.112095)
+target = NodePath("Target")
+
+[node name="CollisionShape3D" parent="water3/TeleportZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.824, -1.48547, 0.174183)
+
+[node name="Target" parent="water3/TeleportZone" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1744, -3.01564, 11.9545)
+
+[node name="water2" parent="." instance=ExtResource("2_trk7y")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.562656, -0.0754375)
+
+[node name="Area3D" parent="water2" index="1"]
+push_dir = Vector3(5.5, 0, 0)
+
+[node name="TeleportZone" parent="water2" node_paths=PackedStringArray("target") instance=ExtResource("3_262si")]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, -2.71053, 3.4591, -0.112095)
+target = NodePath("Target")
+
+[node name="CollisionShape3D" parent="water2/TeleportZone" index="0"]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -11.6777, -1.48547, 0.174182)
+
+[node name="Target" parent="water2/TeleportZone" index="1"]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -11.2842, -3.16175, 6.35828)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 9.52505, 8.88983, 5.01133)
+light_energy = 0.8
+omni_range = 38.5607
+
+[node name="rock1" parent="." instance=ExtResource("4_e1pv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.90329, 1.79953, 3.13095)
+
+[node name="rock2" parent="." instance=ExtResource("4_e1pv4")]
+transform = Transform3D(1.94238, 0, 0, 0, 2.16123, 0, 0, 0, 1.11737, 5.10674, 1.79953, -9.18266)
+
+[node name="rock3" parent="." instance=ExtResource("4_e1pv4")]
+transform = Transform3D(1.34258, 0, 0.247477, 0, 1.22754, 0, -0.534766, 0, 0.621315, 7.32106, 2.07524, -9.0594)
+
+[node name="rock6" parent="." instance=ExtResource("5_kiil1")]
+transform = Transform3D(-1.31366, 1.17353e-07, -0.0287109, -1.14871e-07, -1.31398, -1.14844e-07, -0.0287109, -1.12306e-07, 1.31366, -6.5786, 12.7257, -0.840919)
+
+[node name="Rock2" parent="rock6" index="0"]
+cast_shadow = 0
+
+[node name="rock7" parent="." instance=ExtResource("5_kiil1")]
+transform = Transform3D(-1.31366, 1.73018e-07, -0.0287109, -1.14871e-07, -1.93724, -1.14844e-07, -0.0287109, -1.65577e-07, 1.31366, 1.47095, 12.7257, -7.18581)
+
+[node name="Rock2" parent="rock7" index="0"]
+cast_shadow = 0
+
+[node name="rock8" parent="." instance=ExtResource("5_kiil1")]
+transform = Transform3D(-0.857312, 1.7356e-07, -0.0172631, -7.49665e-08, -1.9433, -6.90525e-08, -0.0187371, -1.66096e-07, 0.789869, 9.21951, 12.7257, -4.55321)
+
+[node name="Rock2" parent="rock8" index="0"]
+cast_shadow = 0
+
+[node name="rock9" parent="." instance=ExtResource("5_kiil1")]
+transform = Transform3D(-0.61864, 1.25241e-07, -0.0124571, -5.40962e-08, -1.4023, -4.98286e-08, -0.0135208, -1.19855e-07, 0.569973, -6.61198, 14.4131, -9.84983)
+
+[node name="Rock2" parent="rock9" index="0"]
+cast_shadow = 0
+
+[node name="rock5" parent="." instance=ExtResource("5_kiil1")]
+transform = Transform3D(-0.00923233, 0, 0.84495, 0, 0.845, 0, -0.84495, 0, -0.00923233, 8.87089, 1.55169, -2.60663)
+
+[node name="rock4" parent="." instance=ExtResource("5_kiil1")]
+transform = Transform3D(0.703233, 0, 0.710959, 0, 1, 0, -0.710959, 0, 0.703233, -5.52429, 1.66119, -9.6413)
+
+[editable path="water/TeleportZone"]
+[editable path="water3/TeleportZone"]
+[editable path="water2"]
+[editable path="water2/TeleportZone"]
+[editable path="rock6"]
+[editable path="rock7"]
+[editable path="rock8"]
+[editable path="rock9"]

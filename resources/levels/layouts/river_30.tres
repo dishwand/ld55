@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="LevelLayout" load_steps=6 format=3 uid="uid://cckrrqyfgpuku"]
+
+[ext_resource type="Script" path="res://scripts/InputProviderSpin.gd" id="1_5xew4"]
+[ext_resource type="Script" path="res://scripts/LevelLayout.gd" id="2_y7wgq"]
+[ext_resource type="Script" path="res://scripts/SpawnShapeRiver.gd" id="3_oyj4x"]
+
+[sub_resource type="Resource" id="Resource_10vbk"]
+script = ExtResource("1_5xew4")
+
+[sub_resource type="Resource" id="Resource_ykal6"]
+script = ExtResource("3_oyj4x")
+num_per_river = 10
+
+[resource]
+script = ExtResource("2_y7wgq")
+num_imps = 30
+imp_input = SubResource("Resource_10vbk")
+spawn_shape = SubResource("Resource_ykal6")

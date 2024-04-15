@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b28e3m0njj03l"]
+
+[ext_resource type="Script" path="res://scripts/TeleportZone.gd" id="1_kydpj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_35o6m"]
+size = Vector3(1, 5.68237, 4.63208)
+
+[node name="TeleportZone" type="Area3D" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4591, -0.112095)
+script = ExtResource("1_kydpj")
+target = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1253, -1.48547, 0.174182)
+shape = SubResource("BoxShape3D_35o6m")
+
+[node name="Target" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0389, -3.01564, -6.39442)

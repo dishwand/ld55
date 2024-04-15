@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SpawnShapeRect2" load_steps=2 format=3 uid="uid://ckcwxmdxvgv2g"]
+
+[ext_resource type="Script" path="res://scripts/SpawnShapeRect.gd" id="1_4fky1"]
+
+[resource]
+script = ExtResource("1_4fky1")
+rows = 5
+cols = 5
+width = 15.0
+height = 15.0

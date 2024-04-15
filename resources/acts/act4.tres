@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="Act" load_steps=13 format=3 uid="uid://bd8e1nhwt2t3m"]
+
+[ext_resource type="Script" path="res://scripts/Act.gd" id="1_f2fhg"]
+[ext_resource type="Script" path="res://scripts/ImpSchemaRandom.gd" id="1_vnvyt"]
+[ext_resource type="Script" path="res://scripts/InputProvider.gd" id="2_q3y0n"]
+[ext_resource type="Script" path="res://scripts/LevelLayout.gd" id="3_8555s"]
+[ext_resource type="Script" path="res://scripts/SpawnShapeRect.gd" id="4_6t3mi"]
+[ext_resource type="Script" path="res://scripts/Level.gd" id="5_3daii"]
+[ext_resource type="AudioStream" uid="uid://sk6enpvwnom6" path="res://audio/music/final.wav" id="6_07hcm"]
+
+[sub_resource type="Resource" id="Resource_7hyj2"]
+script = ExtResource("1_vnvyt")
+color = 0
+eye = 0
+mesh_var = 0
+horn_var = 0
+
+[sub_resource type="Resource" id="Resource_72ohk"]
+script = ExtResource("2_q3y0n")
+
+[sub_resource type="Resource" id="Resource_g0ebm"]
+script = ExtResource("4_6t3mi")
+rows = 1
+cols = 1
+width = 1.0
+height = 1.0
+
+[sub_resource type="Resource" id="Resource_tson7"]
+script = ExtResource("3_8555s")
+num_imps = 1
+imp_input = SubResource("Resource_72ohk")
+spawn_shape = SubResource("Resource_g0ebm")
+
+[sub_resource type="Resource" id="Resource_6toeo"]
+script = ExtResource("5_3daii")
+goal_count = 1
+goal_schema = SubResource("Resource_7hyj2")
+show_profile = true
+reason = "Poor Performance"
+imp_name = "[REDACTED]"
+imp_description = "You've seen too much, anyway."
+layout = SubResource("Resource_tson7")
+env = 4
+dark = false
+override_move_speed = -1.0
+
+[resource]
+script = ExtResource("1_f2fhg")
+levels = Array[ExtResource("5_3daii")]([SubResource("Resource_6toeo")])
+rand_templates = Array[Resource("res://scripts/RandomLevel.gd")]([])
+num_rand_levels = 0
+act_title = "Devil District Courthouse"
+act_description = Array[String](["Congratulations on your hard work.", "There is just one more summons left to deliver.", "Thank you."])
+music = ExtResource("6_07hcm")

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="InputProviderWander" load_steps=2 format=3 uid="uid://6mix3u6tlhmf"]
+
+[ext_resource type="Script" path="res://scripts/InputProviderWander.gd" id="1_behdb"]
+
+[resource]
+script = ExtResource("1_behdb")
+wander_range = Vector2(1, 2)
+still_range = Vector2(3, 4)

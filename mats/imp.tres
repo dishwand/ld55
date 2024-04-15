@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://3epldxgek2qf"]
+
+[ext_resource type="Texture2D" uid="uid://cinh8ii0anmk0" path="res://models/imp/demon_endesga32_crazy.png" id="1_y5wnk"]
+[ext_resource type="Material" uid="uid://ded65xxfoaslf" path="res://mats/outline.tres" id="2_usb6r"]
+
+[resource]
+resource_local_to_scene = true
+next_pass = ExtResource("2_usb6r")
+albedo_texture = ExtResource("1_y5wnk")
+roughness = 0.57
+rim_enabled = true
+rim = 0.94
+rim_tint = 1.0
+clearcoat_roughness = 1.0
+subsurf_scatter_strength = 0.7
+backlight = Color(0.631373, 0.290196, 0.447059, 1)
+disable_receive_shadows = true
