@@ -76,7 +76,7 @@ func start_round():
 	level_num = 0
 	timer.visible = true
 	orders.show_orders()
-	time = 120
+	time = 150
 	playing = true
 	
 	start_level(cur_act.get_level(level_num))
@@ -169,7 +169,7 @@ func add_time_bonus(bonus: float):
 
 func time_over():
 	playing = false
-	handicap += 2
+	handicap += 3
 	AudioMan.play_sound(timeout_audio, -15)
 	player.controlling = false
 	paper.do_discard()
